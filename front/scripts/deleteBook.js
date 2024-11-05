@@ -12,14 +12,19 @@ const eliminate = () => {
         evento.preventDefault();
     
         const title = document.querySelector("#titleInput").value.trim();
+        
+        const token = localStorage.getItem("token");
 
-        axios.delete("http://localhost:3000/books", {data: { title: title}
+        axios.delete("http://localhost:3000/protected", {data: { title: title},
+            headers: {
+                "Authorization": `Bearer ${token}` // Incluye el token en el encabezado de autorización
+            }
         })
         .then((res) => {
             alert("Se eliminó el libro con exito");
         })
         .catch(() => {
-            alert("No se encontró el libro para eliminar.");
+            alert("No se pudo eliminar, RECUERDA QUE DEBES HACER EL LOGIN PARA ELIMINAR UN LIBRO.");
         })
     
     };

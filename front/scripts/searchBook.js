@@ -27,12 +27,12 @@ const search = () => {
         axios.get("http://localhost:3000/books", {params: { title: title}
         })
         .then((res) => {
-          //"Mapear" el listado de peliculas para convertirlos en elementos HTML
+
           bookContainer.innerHTML = "";
            const booksArray = res.data.map(createBook);
            console.log("formulario enviado");
            console.log(res.data);
-            //"Appendear" todos los elementos HTML del nuevo array dentro del contenedor
+
             booksArray.forEach(book => bookContainer.appendChild(book));
             console.log("se ejecutor then");
       })
@@ -51,11 +51,11 @@ const search = () => {
         axios.get("http://localhost:3000/books", {params: { author: author}
         })
         .then((res) => {
-          //"Mapear" el listado de peliculas para convertirlos en elementos HTML
+
           bookContainer.innerHTML = ""; 
           const booksArray = res.data.map(createBook);
           
-            //"Appendear" todos los elementos HTML del nuevo array dentro del contenedor
+
             booksArray.forEach(book => bookContainer.appendChild(book));
             console.log("se ejecutor then");
       })
@@ -75,11 +75,11 @@ const search = () => {
         axios.get("http://localhost:3000/books", {params: { year: year}
         })
         .then((res) => {
-          //"Mapear" el listado de peliculas para convertirlos en elementos HTML
+         
           bookContainer.innerHTML = "";
           const booksArray = res.data.map(createBook);
           
-            //"Appendear" todos los elementos HTML del nuevo array dentro del contenedor
+           
             booksArray.forEach(book => bookContainer.appendChild(book));
             console.log("se ejecutor then");
       })
@@ -102,10 +102,10 @@ const search = () => {
     const titleResetButton = document.querySelector("#titleResetButton");
     titleResetButton.addEventListener("click", resetForm);
 
-    const authorResetButton = document.querySelector("#titleResetButton");
+    const authorResetButton = document.querySelector("#authorResetButton");
     authorResetButton.addEventListener("click", resetForm);
 
-    const yearResetButton = document.querySelector("#titleResetButton");
+    const yearResetButton = document.querySelector("#yearResetButton");
     yearResetButton.addEventListener("click", resetForm);
 
 }

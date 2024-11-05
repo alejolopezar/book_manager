@@ -1,4 +1,3 @@
-//crear una funcion que reciva como parametro un  objeto de tempData
 function createBook (book){
 
     //extraer sus propiedades en variables utilizando destructuring
@@ -17,9 +16,9 @@ function createBook (book){
     pYear.textContent = "Año: "+year;
     pState.textContent = "Duration: "+state;
   
-    //agregar los elementos a las clases CSS correspondientes que hayas implementado para darles estilos
+    //agregar los elementos a las clases CSS correspondientes para darles estilos
     
-    //crear un <div> que sera la tarjeta donde incluiremos todo los demas elementos
+    //crear un <div> que sera la tarjeta donde incluir todo los demas elementos
     const divBook = document.createElement("div");
   
     //"Appendear" al nuevo <div> los elementos creados
@@ -28,7 +27,7 @@ function createBook (book){
     divBook.appendChild(pYear);
     divBook.appendChild(pState);
     
-    //asignar al <div> la clase css que tengas implementada para dale estilos
+    //asignar al <div> la clase css implementada para dale estilos
     divBook.classList.add("bookCard");
 
     //Retorna <div> finalizado con todos los elementos correspondientes dentro

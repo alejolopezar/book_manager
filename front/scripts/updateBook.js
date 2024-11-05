@@ -19,12 +19,20 @@ const update = () => {
             state: document.querySelector("#stateInput").value.trim(),
         };
         console.log("se creo el formulario de actualizacion");
-        axios.put("http://localhost:3000/books", updatedBook)
+
+        const token = localStorage.getItem("token");
+
+
+        axios.put("http://localhost:3000/protected", updatedBook, {
+            headers: {
+                "Authorization": `Bearer ${token}` // Incluye el token en el encabezado de autorización
+            }
+        })
         .then((res) => {
             alert("Se actualizó con exito el libro");
         })
         .catch(() => {
-            alert("No se pudó actualizar el libro");
+            alert("No se pudó actualizar el libro, RECUERDA QUE DEBES HACER EL LOGIN PARA ACTUALIZAR UN LIBRO");
         })
     };
 

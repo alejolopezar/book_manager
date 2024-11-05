@@ -10,7 +10,7 @@ const create = () => {
 
     const creatBook = (evento) => {
         evento.preventDefault();
-    
+
         const newBook = {
             title: document.querySelector("#titleInput").value.trim(),
             author: document.querySelector("#authorInput").value.trim(),
@@ -18,12 +18,19 @@ const create = () => {
             state: document.querySelector("#stateInput").value.trim(),
         };
     console.log(newBook);
-        axios.post("http://localhost:3000/books", newBook)
+
+            const token = localStorage.getItem("token");
+        
+        axios.post("http://localhost:3000/protected", newBook, {
+            headers: {
+                "Authorization": `Bearer ${token}` // Incluye el token en el encabezado de autorización
+            }
+        })
         .then((res) => {
             alert("Se creó el libro con exito");
         })
         .catch(() => {
-            alert("No se pudó crear el libro");
+            alert("No se pudó crear el libro, RECUERDA QUE DEBES HACER EL LOGIN PARA CREAR UN LIBRO");
         })
     };
 
